@@ -1,0 +1,27 @@
+LightDataHolder jest trzymany w:
+<ścierzka sceny>/Data/
+jako:
+<NazwaSceny>/<NazwaSceny>/_LightDataHolder
+
+LightData są trzymane w:
+<Ścierzka sceny>/<NazwaSceny>/Data/
+jako:
+<NaznwaSceny>_LightData_<godzina>
+
+
+Wszystkie Assety są trzymane w:
+<Ścierzka sceny>/<NazwaSceny>/Data/LightData_<godzina>
+
+Wzór nazywania assetów;
+
+Lightmapy:
+Lightmap_<index>
+
+Shadowmapy:
+Shadowmap_<index>
+
+ReflectionProbe:
+ReflectionProbe_<index>
+
+LightProbeHolder:
+LightProbeHolder

@@ -1,0 +1,26 @@
+// Each #kernel tells which function to compile; you can have many kernels
+#pragma kernel CSMain
+
+RWTexture2D<float4> Result;
+
+
+sampler2D _First;
+sampler2D _Second;
+float _Val;
+float _WidthHeight;
+
+float4 SetPixel(float2 uv)
+{
+    float x = (uv.x / _WidthHeight);
+    float y = (uv.y / _WidthHeight);
+
+    float4 _uv = float4(x,y,0,0);
+    float4 first = tex2Dlod(_First, _uv);
+    float4 second = tex2Dlod(_Second, _uv);
+    return lerp(first,second,_Val);
+}
+[numthreads(8,8,1)]
+void CSMain (uint3 id : SV_DispatchThreadID)
+{
+    Result[id.xy] = SetPixel(id.xy);
+}
